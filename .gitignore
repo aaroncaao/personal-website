@@ -1,0 +1,10 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+output/
+.impeccable/review/
+.env
+.env.*
+!.env.example
+*.local

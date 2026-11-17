@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-17T07:48:28.016Z",
+  "title": "Design System: NCAS Career Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0000 0.00)",
+          "oklch(27% 0.0000 0.00)",
+          "oklch(38% 0.0000 0.00)",
+          "oklch(50% 0.0000 0.00)",
+          "oklch(61% 0.0000 0.00)",
+          "oklch(73% 0.0000 0.00)",
+          "oklch(84% 0.0000 0.00)",
+          "oklch(95% 0.0000 0.00)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "oklch(15% 0.0011 17.18)",
+          "oklch(27% 0.0011 17.18)",
+          "oklch(38% 0.0011 17.18)",
+          "oklch(50% 0.0011 17.18)",
+          "oklch(61% 0.0011 17.18)",
+          "oklch(73% 0.0011 17.18)",
+          "oklch(84% 0.0011 17.18)",
+          "oklch(95% 0.0011 17.18)"
+        ]
+      },
+      "taupe": {
+        "role": "neutral",
+        "displayName": "Taupe",
+        "tonalRamp": [
+          "oklch(15% 0.0034 67.78)",
+          "oklch(27% 0.0034 67.78)",
+          "oklch(38% 0.0034 67.78)",
+          "oklch(50% 0.0034 67.78)",
+          "oklch(61% 0.0034 67.78)",
+          "oklch(73% 0.0034 67.78)",
+          "oklch(84% 0.0034 67.78)",
+          "oklch(95% 0.0034 67.78)"
+        ]
+      },
+      "stone": {
+        "role": "neutral",
+        "displayName": "Stone",
+        "tonalRamp": [
+          "oklch(15% 0.0063 75.40)",
+          "oklch(27% 0.0063 75.40)",
+          "oklch(38% 0.0063 75.40)",
+          "oklch(50% 0.0063 75.40)",
+          "oklch(61% 0.0063 75.40)",
+          "oklch(73% 0.0063 75.40)",
+          "oklch(84% 0.0063 75.40)",
+          "oklch(95% 0.0063 75.40)"
+        ]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "tonalRamp": [
+          "oklch(15% 0.0100 73.59)",
+          "oklch(27% 0.0100 73.59)",
+          "oklch(38% 0.0100 73.59)",
+          "oklch(50% 0.0100 73.59)",
+          "oklch(61% 0.0100 73.59)",
+          "oklch(73% 0.0100 73.59)",
+          "oklch(84% 0.0100 73.59)",
+          "oklch(95% 0.0100 73.59)"
+        ]
+      },
+      "warm-gray": {
+        "role": "neutral",
+        "displayName": "Warm gray",
+        "tonalRamp": [
+          "oklch(15% 0.0204 72.87)",
+          "oklch(27% 0.0204 72.87)",
+          "oklch(38% 0.0204 72.87)",
+          "oklch(50% 0.0204 72.87)",
+          "oklch(61% 0.0204 72.87)",
+          "oklch(73% 0.0204 72.87)",
+          "oklch(84% 0.0204 72.87)",
+          "oklch(95% 0.0204 72.87)"
+        ]
+      },
+      "action-hover": {
+        "role": "primary",
+        "displayName": "Action hover",
+        "tonalRamp": [
+          "oklch(15% 0.0117 78.15)",
+          "oklch(27% 0.0117 78.15)",
+          "oklch(38% 0.0117 78.15)",
+          "oklch(50% 0.0117 78.15)",
+          "oklch(61% 0.0117 78.15)",
+          "oklch(73% 0.0117 78.15)",
+          "oklch(84% 0.0117 78.15)",
+          "oklch(95% 0.0117 78.15)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(27% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(50% 0.0000 89.88)",
+          "oklch(61% 0.0000 89.88)",
+          "oklch(73% 0.0000 89.88)",
+          "oklch(84% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Light display",
+        "purpose": "Hero headline."
+      },
+      "headline": {
+        "displayName": "Section headline",
+        "purpose": "Major section headings."
+      },
+      "title": {
+        "displayName": "Project title",
+        "purpose": "Project story headings."
+      },
+      "body": {
+        "displayName": "Reading",
+        "purpose": "Base typography; see DESIGN.md for compact evidence sizes."
+      },
+      "label": {
+        "displayName": "Action label",
+        "purpose": "Primary action labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "resume-paper",
+        "value": "0 10px 28px -18px #82766b40",
+        "purpose": "Faint paper lift on the resume only; removed in print."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-feedback",
+        "value": ".2s ease",
+        "purpose": "Button background/lift and arrow feedback."
+      },
+      {
+        "name": "diagram-arrive",
+        "value": ".85s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Hero diagram arrival. Reduced-motion preference disables motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "tablet",
+        "value": "1100px"
+      },
+      {
+        "name": "mobile",
+        "value": "760px"
+      }
+    ],
+    "focus": {
+      "outline": "2px solid #000",
+      "outlineOffset": "5px"
+    },
+    "print": {
+      "size": "A4",
+      "margin": "14mm",
+      "body": "10pt",
+      "resume": "10pt",
+      "content": "Retain diagrams, captions, disclosures, references and visible URLs; hide interface controls."
+    },
+    "tonalRampPurpose": "Generated preview strips only; not additional implementation palette tokens."
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled pill for exploring work and document actions.",
+      "html": "<button class=\"ds-button\">Explore my work <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:18px;background:var(--ink,#000);color:#fff;border:1px solid #000;border-radius:9999px;padding:13px 22px;font:500 14px Inter,ui-sans-serif,system-ui,sans-serif;min-height:48px;text-decoration:none;cursor:pointer;transition:background .2s ease,transform .2s ease}.ds-button:hover{background:#39352f;border-color:#39352f;transform:translateY(-1px)}.ds-button:focus-visible{outline:2px solid #000;outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}.ds-button:hover{transform:none}}"
+    },
+    {
+      "name": "Compact action",
+      "kind": "button",
+      "refersTo": "button-small",
+      "description": "Compact header document action.",
+      "html": "<button class=\"ds-button-small\">Save portfolio <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button>",
+      "css": ".ds-button-small{display:inline-flex;align-items:center;justify-content:center;gap:18px;background:var(--ink,#000);color:#fff;border:1px solid #000;border-radius:9999px;padding:10px 17px;font:500 12px Inter,ui-sans-serif,system-ui,sans-serif;min-height:44px;text-decoration:none;cursor:pointer;transition:background .2s ease,transform .2s ease}.ds-button-small:hover{background:#39352f;border-color:#39352f;transform:translateY(-1px)}.ds-button-small:focus-visible{outline:2px solid #000;outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-button-small{transition:none}.ds-button-small:hover{transform:none}}"
+    },
+    {
+      "name": "Text action",
+      "kind": "button",
+      "description": "Underlined secondary action with an arrow.",
+      "html": "<a href=\"#resume\" class=\"ds-text-action\">View resume <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-text-action{display:inline-flex;align-items:center;gap:10px;font:500 14px Inter,ui-sans-serif,system-ui,sans-serif;min-height:44px;color:var(--ink,#000);text-decoration:underline;text-underline-offset:4px}.ds-text-action svg{transition:transform .2s ease}.ds-text-action:hover svg{transform:translate(2px,-1px)}.ds-text-action:focus-visible{outline:2px solid #000;outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-text-action svg{transition:none}}"
+    },
+    {
+      "name": "Section navigation",
+      "kind": "nav",
+      "description": "Paper navigation with a persistent current-location underline.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Portfolio sections\"><a href=\"#summary\" aria-current=\"location\">Summary</a><a href=\"#skills\">Skills</a><a href=\"#projects\">Projects</a></nav>",
+      "css": ".ds-nav{display:flex;gap:22px;background:var(--paper,#fdfcfc);font-family:Inter,ui-sans-serif,system-ui,sans-serif}.ds-nav a{position:relative;padding:8px 0;color:#5a544c;text-decoration:none;font-size:13px}.ds-nav a:hover,.ds-nav a[aria-current]{color:#000}.ds-nav a[aria-current]::after{content:'';position:absolute;bottom:3px;left:0;right:0;height:1px;background:#000}.ds-nav a:focus-visible{outline:2px solid #000;outline-offset:5px}"
+    },
+    {
+      "name": "Program badge",
+      "kind": "chip",
+      "description": "Noninteractive outlined program label with decorative dot.",
+      "html": "<span class=\"ds-badge\"><span aria-hidden=\"true\"></span>NCAS 2026-27</span>",
+      "css": ".ds-badge{display:inline-flex;gap:7px;align-items:center;border:1px solid #d7d2cb;border-radius:999px;padding:5px 10px;color:var(--text,#44403b);font:400 11px Inter,ui-sans-serif,system-ui,sans-serif}.ds-badge>span{width:5px;height:5px;border-radius:50%;background:#65745e}"
+    },
+    {
+      "name": "Resume paper",
+      "kind": "card",
+      "refersTo": "resume-sheet",
+      "description": "Paper framing for the shared draft resume; not a generic content-card style.",
+      "html": "<article class=\"ds-resume\"><h3>Aaron Cao</h3><p>Draft resume ? For content review</p><h4>Education</h4><p>Relevant coursework and preparation</p></article>",
+      "css": ".ds-resume{background:#fff;border:1px solid #d8d2ca;border-radius:3px;padding:36px 40px;color:#161513;box-shadow:0 10px 28px -18px #82766b40;font:400 11px/1.5 Inter,ui-sans-serif,system-ui,sans-serif}.ds-resume h3{font-size:27px;font-weight:500;letter-spacing:-.8px;margin:0}.ds-resume h4{font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;border-bottom:1px solid #ddd7cf;padding-bottom:4px;margin:15px 0 7px}.ds-resume p{color:#35312c;margin:4px 0 0}@media print{.ds-resume{border:0;border-radius:0;box-shadow:none;padding:0;font-size:10pt}}"
+    },
+    {
+      "name": "Conceptual workflow",
+      "kind": "custom",
+      "refersTo": "diagram-panel",
+      "description": "Labeled stages on a warm panel; original conceptual art, not measured results.",
+      "html": "<div class=\"ds-workflow\" role=\"img\" aria-label=\"Conceptual workflow: Image data, then Learn patterns, then Classify\"><div>Image data</div><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><div>Learn patterns</div><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><div>Classify</div><span>Conceptual workflow</span></div>",
+      "css": ".ds-workflow{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;min-height:120px;padding:32px 28px 55px;background:var(--taupe,#f5f3f1);border-radius:20px;font:400 11px Inter,ui-sans-serif,system-ui,sans-serif;color:#51493e}.ds-workflow>div{flex:1;text-align:center}.ds-workflow>span{position:absolute;bottom:21px;left:28px;color:#655e54}.ds-workflow>svg{width:18px;flex-shrink:0;color:#73695b}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Warm cream editorial",
+    "overview": "The shipped portfolio uses eggshell paper, light Inter headings, generous whitespace, and quiet taupe framing. Open evidence rows and restrained geometric diagrams give the supplied work room to lead. Black pill actions and fine dividers preserve the reference's editorial character.\n\nThis describes the React, TypeScript, Vite, and plain CSS implementation in `src/App.tsx` and `src/styles.css`. Editable facts live in `src/content/portfolio.ts`; Aaron's factual review remains pending. `AGENTS.md`, the NCAS guide, and `PRODUCT.md` retain authority over content and submission requirements. No public deployment is implied.",
+    "keyCharacteristics": [
+      "Light headings and warm neutral reading surfaces.",
+      "Open evidence rows with explicit career connections.",
+      "Original conceptual diagrams, clearly labeled.",
+      "Visible draft status and shared website/PDF content."
+    ],
+    "rules": [
+      {
+        "name": "The Evidence Rule",
+        "body": "Label conceptual graphics as conceptual; never present them as measured project results or supplied satellite imagery.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do preserve warm paper, light headings, and open evidence rows.",
+      "Do keep career connections, citations, and draft disclosures visible.",
+      "Do retain all substantive website content in the portfolio PDF.",
+      "Do use supplied facts and label conceptual graphics explicitly."
+    ],
+    "donts": [
+      "Don't add NASA meatball or worm logos or imply NASA endorsement.",
+      "Don't replace evidence with decorative space imagery or fabricated metrics.",
+      "Don't hide required content behind tabs, carousels, or collapsed panels.",
+      "Don't introduce commercial calls to action into the portfolio."
+    ]
+  }
+}

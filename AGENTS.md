@@ -4,7 +4,20 @@
 
 Build a personal career portfolio for NASA Community College Aerospace Scholars (NCAS), demonstrating career direction, academic preparation, and readiness for NASA/aerospace opportunities. Choose one NASA or aerospace career area and organize the entire portfolio around it.
 
-**Current task: scope review only. Do not write application code, scaffold a framework, install dependencies, or deploy until the user requests implementation.** The repository currently contains this guide and the NCAS PDF; no application or build/test tooling exists.
+**Implementation is authorized.** Use React, TypeScript, Vite, and plain CSS. Preserve the warm editorial style in `DESIGN.md`. Deliver local preview, production assets, and PDF exports; public deployment remains outside the current scope.
+
+Application code is in `src/`, editable portfolio content in `src/content/portfolio.ts`, and static assets in `public/`. Browser tests are in `tests/`; PDF generation is in `scripts/`. `NCAS_Career_Portfolio_HANDOFF.md` provides draft content. Aaron will review factual wording separately; never invent metrics or contact details.
+
+## Development Commands
+
+- `npm ci`: install locked dependencies.
+- `npm run dev`: launch local development.
+- `npm run build`: type-check and build `dist/`.
+- `npm run preview`: serve the production build.
+- `npm run export:pdf`: export portfolio and one-page résumé PDFs from the production build to `output/`, `public/`, and `dist/`. Run after building or changing content.
+- `npm run test:browser`: verify navigation, accessibility, responsive layouts, citations, and document controls. Install Chromium with `npx playwright install chromium` first.
+
+Use two-space indentation, PascalCase React components, and descriptive TypeScript data properties. Keep content separate from presentation and avoid backend dependencies.
 
 ## Authoritative Requirements
 
@@ -44,7 +57,7 @@ Prioritize concrete evidence and career connections before decorative features.
 
 Use a simple portfolio page with clear navigation to the summary, skills, experiences/projects, résumé, career pathway, and references. A separate pathway section may reinforce connections already present elsewhere. Provide readable desktop/mobile layouts, accessible headings and keyboard navigation, and a print layout that preserves every section for PDF export. Ensure the résumé itself remains one page.
 
-Defer blogs, authentication, databases, analytics, elaborate animation, and contact forms unless requested. Select the simplest maintainable stack after scope review; document real setup/build/test commands once configured.
+Defer blogs, authentication, databases, analytics, elaborate animation, and contact forms unless requested. Keep the selected React/Vite implementation maintainable; keep README commands consistent with package scripts.
 
 ## Inputs & Completion Checklist
 
