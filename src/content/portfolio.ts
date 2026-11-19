@@ -1,12 +1,25 @@
+export type PortfolioImage = {
+  file: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
+export const portrait: PortfolioImage = {
+  file: 'aaron-cao.png',
+  alt: 'Portrait of Aaron Cao',
+  width: 1086,
+  height: 1448,
+};
+
 export const identity = {
   name: 'Aaron Cao',
-  role: 'Data science & machine learning student',
-  focus: 'Satellite imagery. Remote sensing. Reliable AI.',
+  role: 'Second-year data science student at Orange Coast College',
   colleges: 'Golden West College + Orange Coast College',
   program: 'NCAS 2026–27',
 };
 
-export const summary = `I am a data science major at Golden West College, also enrolled at Orange Coast College, with a 4.0 community college GPA. I plan to transfer in Fall 2027 to a University of California campus, with UC Berkeley as my top choice, and build a career in AI and machine learning engineering that turns satellite and sensor data into decisions. NASA’s Science Mission Directorate runs Earth observation and astrophysics missions that depend on data analysis,[1][2] and NASA’s Data, IT, and Cyber career area supports that work.[3] My preparation combines coursework in statistics, linear algebra, calculus, SQL-based business analytics, and C++ data structures with a Python certification and hands-on machine learning work. As a statistics tutor, I also practice explaining technical ideas clearly, which matters on NASA teams where engineers, scientists, IT specialists, and business professionals work together.[3] Over the next two years I plan to pursue a NASA internship through OSTEM or Pathways.[4] Long term, I want to build reliable, well-tested AI systems for aerospace.`;
+export const summary = `I am a data science student enrolled at Orange Coast College, preparing for a career in machine learning and data analytics. I plan to transfer to a University of California campus in Fall 2027 and continue developing the mathematical, computational, and practical foundations this work requires. O*NET identifies data analysis, model testing and validation, and communicating findings as responsibilities of data scientists. Its education survey emphasizes bachelor’s and master’s degrees, supporting my plan to continue my education while gaining applied experience.[10] My coursework in statistics, linear algebra, calculus, SQL, and C++ connects directly to the programming and quantitative reasoning used in this field. Through my EuroSAT project, I gained experience in satellite imagery with a convolutional neural network and data analytics/preprocessing. CoAudit gave me experience building end to end applications with full stack development. As a statistics tutor, I strengthen my ability to explain technical ideas clearly, a skill O*NET highlights through presenting and interpreting analytical results.[10] These experiences connect my preparation to NASA’s Earth observation work, where satellite data helps scientists study our planet.[11] I want to contribute tools that make those observations useful and trustworthy. My next steps are to deepen my geospatial analysis and model evaluation skills, complete my transfer preparation, and pursue a NASA or industry data internship. Long term, I aim to build reliable machine learning systems that turn Earth observation data into information people can understand and use to make informed decisions.`;
 
 export const skills = [
   { name: 'Python & data analysis', evidence: 'Python certification · pandas · scikit-learn', relevance: 'Analyzing and modeling mission-scale datasets.[7]', group: 'Data foundations' },
@@ -21,13 +34,19 @@ export const skills = [
 
 export type Experience = {
   id: string; title: string; role: string; field: string; tags: string[];
-  description: string[]; alignment: string[]; visual: 'classification' | 'verification' | 'communication';
+  description: string[]; alignment: string[]; image: PortfolioImage;
 };
 
 export const experiences: Experience[] = [
   {
-    id: 'eurosat', title: 'Reading the Earth, one image at a time.', role: 'EuroSAT Land Classifier · Personal project', field: 'Computer vision / remote sensing',
-    tags: ['PyTorch', 'ResNet-18', 'FastAPI', 'Docker'], visual: 'classification',
+    id: 'eurosat', title: 'EuroSAT Land Classifier', role: 'Personal project', field: 'Computer vision / remote sensing',
+    tags: ['PyTorch', 'ResNet-18', 'FastAPI', 'Docker'],
+    image: {
+      file: 'eurosat-results.png',
+      alt: 'EuroSAT results showing 91.96% test accuracy, accuracy by land class, and training loss and accuracy curves',
+      width: 1122,
+      height: 777,
+    },
     description: [
       'I built a satellite image classifier by fine-tuning a ResNet-18 convolutional neural network on the EuroSAT dataset to label land use and land cover types.',
       'I serve the trained model through a FastAPI service backed by PostgreSQL and packaged in Docker, so predictions can be requested and stored like a real application.',
@@ -42,8 +61,14 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    id: 'coaudit', title: 'Building confidence in the code we ship.', role: 'CoAudit · Co-founder · Since May 2026', field: 'Software assurance / MLOps',
-    tags: ['Python', 'scikit-learn', 'PostgreSQL', 'React'], visual: 'verification',
+    id: 'coaudit', title: 'CoAudit', role: 'Co-founder · Since May 2026', field: 'Software assurance / MLOps',
+    tags: ['Python', 'scikit-learn', 'PostgreSQL', 'React'],
+    image: {
+      file: 'coaudit-activity.png',
+      alt: 'CoAudit activity dashboard showing code changes, risk levels, and pending reviews',
+      width: 1485,
+      height: 842,
+    },
     description: [
       'I co-founded CoAudit, a risk-aware GitHub App that flags AI-generated code in pull requests and scores how risky each change is.',
       'The system uses a FastAPI and PostgreSQL backend, a VS Code extension that tracks AI suggestions, a scikit-learn risk-scoring pipeline, and a React dashboard.',
@@ -58,8 +83,14 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    id: 'tutoring', title: 'Making complex ideas feel approachable.', role: 'Statistics Tutor · Golden West College · Fall 2026', field: 'Statistical reasoning / communication',
-    tags: ['Statistics', 'Teaching', 'Technical communication'], visual: 'communication',
+    id: 'tutoring', title: 'Statistics Tutoring', role: 'Golden West College · Fall 2026', field: 'Statistical reasoning / communication',
+    tags: ['Statistics', 'Teaching', 'Technical communication'],
+    image: {
+      file: 'math-science-building.jpg',
+      alt: 'The math and science building at dusk',
+      width: 795,
+      height: 450,
+    },
     description: [
       'I tutor Introduction to Statistics at Golden West College’s Tutoring and Learning Center, helping students with probability, hypothesis testing, sampling, and related concepts.',
       'I explain ideas in several ways until they make sense to each student.',
@@ -85,9 +116,9 @@ export const pathway = [
 ] as const;
 
 export const timeline = [
-  { when: 'Now → Fall 2027', title: 'Build a strong foundation.', text: 'Complete NCAS, deepen my coursework, and prepare to transfer to a UC campus. UC Berkeley is my top choice.' },
-  { when: 'Before 2029', title: 'Put learning into practice.', text: 'Pursue a NASA OSTEM or Pathways internship, or an ML/data internship at a local startup.[4]' },
-  { when: 'Long term', title: 'Make reliable AI useful.', text: 'Work in AI and machine learning engineering, with a focus on satellite data and dependable aerospace systems.' },
+  { when: 'Now → Fall 2027', title: 'UC transfer preparation', text: 'Complete NCAS, deepen my coursework, and prepare to transfer to a UC campus. UC Berkeley is my top choice.' },
+  { when: 'Before 2029', title: 'Internship', text: 'Pursue a NASA OSTEM or Pathways internship, or an ML/data internship at a local startup.[4]' },
+  { when: 'Long term', title: 'Machine learning engineering', text: 'Work in AI and machine learning engineering, with a focus on satellite data and dependable aerospace systems.' },
 ];
 
 export const references = [
@@ -100,18 +131,6 @@ export const references = [
   { id: 7, org: 'NASA', title: 'Technology Transfer Portal', url: 'https://technology.nasa.gov/' },
   { id: 8, org: 'U.S. Office of Personnel Management', title: 'US Tech Force', url: 'https://techforce.gov/' },
   { id: 9, org: 'NASA', title: 'Next Gen STEM for Careers', url: 'https://www.nasa.gov/learning-resources/next-gen-stem-for-careers/' },
+  { id: 10, org: 'O*NET OnLine', title: 'Data Scientists — 15-2051.00', url: 'https://www.onetonline.org/link/summary/15-2051.00' },
+  { id: 11, org: 'NASA Science', title: 'Earth Science', url: 'https://science.nasa.gov/earth/' },
 ];
-
-export const resume = {
-  education: 'Golden West College & Orange Coast College',
-  educationDetail: 'Concurrent enrollment · Since August 2025 · GPA 4.0 · Transfer target: Fall 2027',
-  coursework: 'Statistics, linear algebra, multivariable calculus, business analytics / SQL, C++ data structures',
-  experience: [
-    { title: 'Co-founder · CoAudit', date: 'May 2026–present', bullets: ['Built a risk-aware workflow for reviewing AI-generated code in GitHub pull requests.', 'Developed with FastAPI, PostgreSQL, scikit-learn, and React; deployed the backend to Railway.'] },
-    { title: 'Software Engineer Intern · Toyz Electronics', date: 'January–March 2026', bullets: ['Software engineering internship. Responsibilities and outcomes to be added after review.'] },
-    { title: 'Statistics Tutor · Golden West College', date: 'Fall 2026–present', bullets: ['Support Introduction to Statistics students with statistical reasoning and technical concepts.'] },
-  ],
-  project: 'Fine-tuned ResNet-18 on EuroSAT for land use and land cover classification; served predictions with FastAPI, PostgreSQL, and Docker.',
-  programs: 'NASA Community College Aerospace Scholars, 2026–27 · Python certification',
-  skills: 'Python · SQL · PyTorch · scikit-learn · FastAPI · PostgreSQL · Docker · TypeScript · React · C++',
-};

@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { experiences, summary } from '../src/content/portfolio';
+import { experiences, references, summary } from '../src/content/portfolio';
 import { mkdir } from 'node:fs/promises';
 
 test('content limits and evidence blocks', async ({ page }) => {
@@ -17,10 +17,10 @@ test('content limits and evidence blocks', async ({ page }) => {
   await expect(page.locator('h1')).toHaveCount(1);
   await expect(page.locator('.skill-row')).toHaveCount(8);
   await expect(page.locator('.project')).toHaveCount(3);
-  await expect(page.locator('.references-list li')).toHaveCount(9);
+  await expect(page.locator('.references-list li')).toHaveCount(references.length);
   const missing = await page.locator('a[href^="#"]').evaluateAll(links => links.filter(link => !document.getElementById((link as HTMLAnchorElement).hash.slice(1))).map(link => link.getAttribute('href')));
   expect(missing).toEqual([]);
-  for (let n = 1; n <= 9; n++) await expect(page.locator(`[data-citation="${n}"]`).first()).toBeAttached();
+  for (const reference of references) await expect(page.locator(`[data-citation="${reference.id}"]`).first()).toBeAttached();
 });
 
 test('desktop and mobile layout, accessibility and screenshots', async ({ page }) => {
@@ -32,6 +32,18 @@ test('desktop and mobile layout, accessibility and screenshots', async ({ page }
     await page.goto('/');
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.evaluate(() => document.fonts.ready);
+    const framedImages = page.locator('.image-frame img');
+    await expect(framedImages).toHaveCount(4);
+    for (const image of await framedImages.all()) {
+      await image.scrollIntoViewIfNeeded();
+      const heightDifference = await image.evaluate(async (element: HTMLImageElement) => {
+        await element.decode();
+        const bounds = element.getBoundingClientRect();
+        return Math.abs(bounds.height - bounds.width * element.naturalHeight / element.naturalWidth);
+      });
+      expect(heightDifference).toBeLessThan(1);
+    }
+    await page.evaluate(() => window.scrollTo(0, 0));
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
     expect(results.violations.map(v => `${v.id}: ${v.nodes.map(n => n.target).join(', ')}`)).toEqual([]);
@@ -71,9 +83,24 @@ test('résumé, download and print control work', async ({ page, request }) => {
   const response = await request.get('/AaronCao_NCAS_Student_Challenge_Resume.pdf');
   expect(response.status()).toBe(200);
   expect(response.headers()['content-type']).toContain('application/pdf');
-  await page.getByRole('link', { name: 'Open printable résumé' }).click();
+  const uploadedResume = await request.get('/NCAS_RESUME.pdf');
+  expect(await response.body()).toEqual(await uploadedResume.body());
+  await expect(page.getByTitle('Aaron Cao résumé PDF')).toBeVisible();
+  await expect(page.getByTitle('Aaron Cao résumé PDF')).toHaveAttribute('src', /NCAS_RESUME\.pdf#view=FitH$/);
+  await expect(page.getByRole('link', { name: 'Open résumé PDF' })).toHaveAttribute('href', /NCAS_RESUME\.pdf$/);
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('link', { name: 'Download résumé' }).click(),
+  ]);
+  expect(download.suggestedFilename()).toBe('AaronCao_NCAS_Student_Challenge_Resume.pdf');
+  await expect(page.locator('.resume-sheet')).toBeHidden();
+  await page.emulateMedia({ media: 'print' });
+  await expect(page.getByRole('article', { name: 'Aaron Cao résumé' })).toContainText('Statistics Teaching Assistant and Peer Tutor');
+  await expect(page.getByTitle('Aaron Cao résumé PDF')).toBeHidden();
+  await page.emulateMedia({ media: 'screen' });
+  await page.goto('/?view=resume');
   await expect(page).toHaveURL(/view=resume/);
-  await expect(page.getByRole('article', { name: 'Aaron Cao draft résumé' })).toBeVisible();
+  await expect(page.getByTitle('Aaron Cao résumé PDF')).toBeVisible();
   await page.evaluate(() => { window.print = () => { document.body.dataset.printCalled = 'true'; }; });
   await page.getByRole('button', { name: 'Print résumé' }).click();
   await expect(page.locator('body')).toHaveAttribute('data-print-called', 'true');

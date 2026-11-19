@@ -1,6 +1,6 @@
 # Aaron Cao — NCAS Career Portfolio
 
-A single-page React/TypeScript portfolio for NASA Community College Aerospace Scholars. Warm editorial styling, linked citations, an accessible HTML résumé, and print layouts for the complete portfolio and standalone résumé.
+A single-page React/TypeScript portfolio for NASA Community College Aerospace Scholars. Warm editorial styling, linked citations, an embedded résumé PDF, and print layouts for the complete portfolio and standalone résumé.
 
 ## Run locally
 
@@ -25,15 +25,15 @@ npm run preview
 
 `build` type-checks and produces `dist/`. `export:pdf` starts an isolated production preview on port 4174, exports both PDFs, and closes that server. Keep that port free. It writes PDFs to `output/` and copies them to `public/` and `dist/`; it also writes `output/content-checks.json`. Browser tests start or reuse the development server on port 5173 and save screenshots under `.impeccable/review/`.
 
-The “Save portfolio” control opens the browser print dialog: select Save as PDF, A4, default CSS margins, and disable browser headers/footers. The standalone printable résumé is at `?view=resume`. Its download uses the generated PDF, so **rerun build and export after changing content**.
+The “Save portfolio” control opens the browser print dialog: select Save as PDF, A4, default CSS margins, and disable browser headers/footers. The résumé section embeds the supplied PDF and links to the original for browsers that open PDFs separately. The download uses the NCAS submission filename. **Rerun build and export after changing content.**
 
 ## Edit content
 
-Edit `src/content/portfolio.ts`: identity, executive summary, eight skills, experiences, pathway rows, timeline, references, and résumé. Citation markers such as `[3]` become linked superscripts. Keep reference IDs stable or update all markers when changing them. Every reference needs a citation.
+Edit `src/content/portfolio.ts` for the identity, executive summary, skills, experiences, pathway rows, timeline, and references. Citation markers such as `[3]` become linked superscripts. Keep reference IDs stable or update all markers when changing them. Every reference needs a citation.
 
-Résumé HTML, résumé PDF, and the résumé inside the full portfolio share the same data. The handoff is draft material; see [CONTENT_REVIEW.md](CONTENT_REVIEW.md) before submission. The site and PDFs explicitly mark the content as draft.
+The source résumé is `public/NCAS_RESUME.pdf`. When replacing it, update the print-only transcription in `src/content/resume.ts` so the résumé also appears in the full portfolio PDF. See [CONTENT_REVIEW.md](CONTENT_REVIEW.md) for portfolio copy still under review.
 
-Presentation lives in `src/App.tsx` and `src/styles.css`. Fonts are self-hosted from `@fontsource/inter`; its OFL license is included in `public/licenses/`. Diagrams are original geometric illustrations, not actual satellite data or project outputs. No external image assets, backend, account, or API keys are needed.
+Presentation lives in `src/App.tsx` and `src/styles.css`. Fonts are self-hosted from `@fontsource/inter`, with the OFL license in `public/licenses/`. The portrait, project screenshots, and campus photo are stored in `public/images/`.
 
 ## Static deployment package
 
